@@ -8,4 +8,3 @@ services:
     environment: 
      MONGO_INITDB_ROOT_USERNAME: test
      MONGO_INITDB_ROOT_PASSWORD: test
-    
