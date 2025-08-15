@@ -10,3 +10,4 @@ const getEnv = (key: string, defaultValue?: string):string => {
 }
 
 export const MONGO_URI = getEnv("MONGO_URI");
+export const APP_ORIGIN = getEnv("APP_ORIGIN");
