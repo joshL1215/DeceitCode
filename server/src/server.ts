@@ -5,6 +5,7 @@ import { APP_ORIGIN } from "./constants/env.js";
 import cookieParser from "cookie-parser";
 import errorHandler from "./middleware/errorHandler.js";
 import connectDb from "./config/db.js";
+import catchErrors from "./utils/catchErrors.js";
 
 const App = express();
 
@@ -18,19 +19,15 @@ App.use(
 );
 App.use(cookieParser());
 
-App.get("/", async (req, res, next) => {
-
-    try {
+// Test endpoint
+App.get("/", 
+    catchErrors(async (req, res, next) => {
         throw new Error("TEST");
         return res.status(200).json({
             status: "Healthy",
-    });
-    }
-    catch (error) {
-        next(error);
-    }
-
-});
+        });
+    })
+);
 
 App.use(errorHandler);
 
