@@ -7,11 +7,12 @@ function App() {
 
   return (
     <div>
-      <Layout />
       <Routes>
-        <Route path="/Home" />
-        <Route path="/workspace" />
-        <Route path="/settings" />
+        <Route path="/" element={<Layout />}>
+          <Route index path="/Home" />
+          <Route path="/workspace" />
+          <Route path="/settings" />
+        </Route>
       </Routes>
     </div>
 
