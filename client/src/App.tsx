@@ -1,18 +1,19 @@
 import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
-import './App.css'
+import NavBar from './components/NavBar';
 
 function App() {
 
   return (
-    <Routes>
-      <Route element={<Layout />}>
+    <div>
+      <Layout />
+      <Routes>
         <Route path="/Home" />
         <Route path="/workspace" />
         <Route path="/settings" />
-      </Route>
-    </Routes>
+      </Routes>
+    </div>
 
   )
 }

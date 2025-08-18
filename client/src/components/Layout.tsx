@@ -1,13 +1,11 @@
-import Navbar from './NavBar';
+import NavBar from './NavBar';
 
 function Layout() {
-
     return (
-        <div>
-            <Navbar />
+        <div className="min-h-screen">
+            <NavBar />
         </div>
     )
 }
-
 
 export default Layout;
