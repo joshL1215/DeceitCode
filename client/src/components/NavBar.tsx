@@ -6,7 +6,7 @@ function NavBar() {
 
             {/* Logo */}
             <a href="/">
-                <img className="max-h-20" src={siteLogo} />
+                <img className="max-h-15" src={siteLogo} />
             </a>
 
             {/* Nav Buttons */}

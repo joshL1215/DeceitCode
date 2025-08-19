@@ -6,7 +6,7 @@ interface TextEditorConfig {
     starterCode: string;
 }
 
-const TextEditor: React.FC<TextEditorConfig> = ({ language, starterCode }) => {
+function TextEditor({ language, starterCode }: TextEditorConfig) {
     const containerRef = useRef<HTMLDivElement>(null);
     const editorRef = useRef<monaco.editor.IStandaloneCodeEditor | null>(null);
 
