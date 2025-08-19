@@ -1,0 +1,39 @@
+import { useState } from "react";
+
+const PANEL_STYLE = "flex justify-center bg-[#DCE0D9] rounded shadow overflow-hidden";
+const NAV_STYLE = "flex justify-left bg-[#DCE0D9] rounded shadow h-10 w-full overflow-hidden"
+const BUTTON_STYLE = "flex-1 h-full w-auto px-4"
+
+function Workspace() {
+    const [leftPanelTab, setLeftPanelTab] = useState("Problem");
+
+    const getFullStyle = (thisTab: string) => `${BUTTON_STYLE} ${thisTab === leftPanelTab ? "bg-gray-500" : "hover:bg-gray-300"}`
+
+    return (
+        <div className="flex flex-row justify-center p-3 gap-3 h-full">
+
+            {/* Problem panel */}
+            <div className={`${PANEL_STYLE} flex-1`}>
+                <div className={`${NAV_STYLE} `}>
+                    <button className={getFullStyle("Problem")} onClick={() => setLeftPanelTab("Problem")}>
+                        Problem
+                    </button>
+                    <button className={`${getFullStyle("Run")} border-x border-x-gray-300`} onClick={() => setLeftPanelTab("Run")}>
+                        Run
+                    </button>
+                    <button className={getFullStyle("Submit")} onClick={() => setLeftPanelTab("Submit")}>
+                        Submit
+                    </button>
+
+                </div>
+            </div>
+
+            {/* Editor panel */}
+            <div className={`${PANEL_STYLE} flex-3`}>
+                Hi
+            </div>
+        </div >
+    );
+}
+
+export default Workspace;

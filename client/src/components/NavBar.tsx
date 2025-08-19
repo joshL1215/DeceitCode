@@ -5,15 +5,17 @@ function NavBar() {
         <nav className="flex flex-row justify-between items-center px-5 bg-[#DCE0D9]">
 
             {/* Logo */}
-            <img className="max-h-20" src={siteLogo} />
+            <a href="/">
+                <img className="max-h-20" src={siteLogo} />
+            </a>
 
             {/* Nav Buttons */}
             <div className='flex flex-row gap-5'>
-                <a href="/workspace">Home</a>
+                <a href="/">Home</a>
                 <a href="/workspace">Code</a>
-                <a href="/workspace">Settings</a>
-
+                <a href="/settings">Settings</a>
             </div>
+
         </nav>
     );
 }
