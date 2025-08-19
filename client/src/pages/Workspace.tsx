@@ -1,9 +1,9 @@
 import { useState } from "react";
 import TextEditor from "../components/TextEditor";
 
-const LEFT_PANEL_STYLE = "flex justify-center bg-[#DCE0D9] rounded shadow overflow-hidden";
-const RIGHT_PANEL_STYLE = "flex justify-center items-center bg-[#DCE0D9] rounded shadow overflow-hidden";
-const NAV_STYLE = "flex justify-left bg-[#DCE0D9] rounded shadow h-10 w-full overflow-hidden"
+const LEFT_PANEL_STYLE = "flex flex-col bg-[#DCE0D9] rounded shadow overflow-hidden";
+const RIGHT_PANEL_STYLE = "flex flex-col items-center bg-[#DCE0D9] rounded shadow overflow-hidden";
+const NAV_STYLE = "flex justify-left bg-[#DCE0D9] rounded shadow w-full overflow-hidden"
 const BUTTON_STYLE = "flex-1 h-full w-auto px-4"
 
 function Workspace() {
@@ -16,7 +16,7 @@ function Workspace() {
 
             {/* Problem panel */}
             <div className={`${LEFT_PANEL_STYLE} flex-1`}>
-                <div className={`${NAV_STYLE} `}>
+                <div className={`${NAV_STYLE} h-10`}>
                     <button className={getFullStyle("Problem")} onClick={() => setLeftPanelTab("Problem")}>
                         Problem
                     </button>
@@ -26,13 +26,23 @@ function Workspace() {
                     <button className={getFullStyle("Submit")} onClick={() => setLeftPanelTab("Submit")}>
                         Submit
                     </button>
-
                 </div>
             </div>
 
             {/* Editor panel */}
-            <div className={`${RIGHT_PANEL_STYLE} flex-3 `}>
-                <div className={'w-full h-full p-5'}>
+            <div className={`${RIGHT_PANEL_STYLE} flex-3`}>
+                {/* <div className={`${NAV_STYLE} h-[8%]`}>
+                    <button className={getFullStyle("Problem")} onClick={() => setLeftPanelTab("Problem")}>
+                        Problem
+                    </button>
+                    <button className={`${getFullStyle("Run")} border-x border-x-gray-300`} onClick={() => setLeftPanelTab("Run")}>
+                        Run
+                    </button>
+                    <button className={getFullStyle("Submit")} onClick={() => setLeftPanelTab("Submit")}>
+                        Submit
+                    </button>
+                </div> */}
+                <div className={'h-[100%] w-[100%] p-5'}>
                     <TextEditor language='python' starterCode='print(hello world)' />
                 </div>
             </div>

@@ -11,13 +11,26 @@ const TextEditor: React.FC<TextEditorConfig> = ({ language, starterCode }) => {
     const editorRef = useRef<monaco.editor.IStandaloneCodeEditor | null>(null);
 
     useEffect(() => {
+
+        monaco.editor.defineTheme('custom-beige', {
+            base: 'vs',
+            inherit: true,
+            rules: [],
+            colors: {
+                'editor.background': '#DCE0D9',
+                'editor.lineHighlightBackground': '#ecececff',
+                'editorLineNumber.foreground': '#000000ff',
+            },
+        });
+
         if (containerRef.current) {
             editorRef.current = monaco.editor.create(containerRef.current, {
                 value: starterCode,
                 language: language,
-                theme: 'vs-light',
+                theme: 'custom-beige',
                 automaticLayout: true,
-                minimap: { enabled: false }, // optional: hide minimap
+                renderLineHighlight: 'line',
+                minimap: { enabled: false },
             });
         }
         return () => {
