@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import * as monaco from 'monaco-editor';
 
 interface TextEditorConfig {
@@ -17,15 +17,15 @@ function TextEditor({ language, starterCode }: TextEditorConfig) {
             inherit: true,
             rules: [],
             colors: {
-                'editor.background': '#DCE0D9',
-                'editor.lineHighlightBackground': '#ecececff',
+                'editor.background': '#e0d9d9ff',
+                'editor.lineHighlightBackground': '#8c5e5e22',
                 'editorLineNumber.foreground': '#000000ff',
             },
         });
 
         if (containerRef.current) {
             editorRef.current = monaco.editor.create(containerRef.current, {
-                value: starterCode,
+                value: starterCode, // TODO: make this grab starter code based on the redux state for problem+language
                 language: language,
                 theme: 'custom-beige',
                 automaticLayout: true,

@@ -2,7 +2,7 @@ import siteLogo from '../assets/site-logo.svg';
 
 function NavBar() {
     return (
-        <nav className="flex flex-row justify-between items-center px-5 bg-[#DCE0D9]">
+        <nav className="flex flex-row justify-between items-center px-5 bg-[#e0d9d9ff]">
 
             {/* Logo */}
             <a href="/">
