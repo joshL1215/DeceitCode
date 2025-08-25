@@ -11,14 +11,13 @@ function TextEditor({ language, starterCode }: TextEditorConfig) {
     const editorRef = useRef<monaco.editor.IStandaloneCodeEditor | null>(null);
 
     useEffect(() => {
-
         monaco.editor.defineTheme('custom-beige', {
             base: 'vs',
             inherit: true,
             rules: [],
             colors: {
-                'editor.background': '#e0d9d9ff',
-                'editor.lineHighlightBackground': '#8c5e5e22',
+                'editor.background': '#f0ededff',
+                'editor.lineHighlightBackground': '#8c5e5e11',
                 'editorLineNumber.foreground': '#000000ff',
             },
         });
