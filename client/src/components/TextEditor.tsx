@@ -24,7 +24,7 @@ function TextEditor({ language, starterCode }: TextEditorConfig) {
 
         if (containerRef.current) {
             editorRef.current = monaco.editor.create(containerRef.current, {
-                value: starterCode, // TODO: make this grab starter code based on the redux state for problem+language
+                value: starterCode,
                 language: language,
                 theme: 'custom-beige',
                 automaticLayout: true,
