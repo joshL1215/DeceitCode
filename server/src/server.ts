@@ -6,6 +6,7 @@ import cookieParser from "cookie-parser";
 import errorHandler from "./middleware/errorHandler.js";
 import connectDb from "./config/db.js";
 import catchErrors from "./utils/catchErrors.js";
+import authRoutes from "./routes/auth-routes.js";
 
 const App = express();
 
@@ -28,6 +29,8 @@ App.get("/",
         });
     })
 );
+
+App.use("/auth", authRoutes)
 
 App.use(errorHandler);
 
