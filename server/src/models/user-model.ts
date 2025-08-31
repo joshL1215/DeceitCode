@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import bcrypt from "bcrypt";
 
 export interface UserDoc extends mongoose.Document {
-    email: string;
+    username: string;
     password: string;
     verified: boolean;
     createdAt: Date;
@@ -11,7 +11,7 @@ export interface UserDoc extends mongoose.Document {
 }
 
 const userSchema = new mongoose.Schema<UserDoc>({
-    email: {type: String, unqiue: true, required: true},
+    username: {type: String, unqiue: true, required: true},
     password: {type: String, required: true},
     verified: {type: Boolean, required: true, default: false}},
     {
