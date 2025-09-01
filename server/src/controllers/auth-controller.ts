@@ -31,3 +31,19 @@ export const registerHandler = catchErrors(
 
     }
 );
+
+const loginSchema = z.object({
+    username: z.string().min(1).max(255),
+    password: z.string().min(8).max(128),
+    userAgent: z.string().optional().default("unknown")
+    }
+);
+export const loginHandler = catchErrors(
+    async (req, res) => {
+        const request = loginSchema.parse({
+            ...req.body,
+            userAgent: req.headers["user-agent"],
+        });
+        
+    }
+)

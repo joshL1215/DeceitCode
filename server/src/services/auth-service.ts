@@ -51,3 +51,27 @@ export const createAccount = async (data: CreateAccountParams) => {
         refreshToken,
     }
 };
+
+type LoginParams = {
+    username: string;
+    password: string;
+    userAgent?: string;
+};
+
+export const loginUser = async ({username, password, userAgent}:LoginParams) => {
+    const user = await UserModel.findOne({username});
+    if (!user) throw new Error("Invalid username or password");
+    
+    const valid = await user.comparePass(password);
+    if (!valid) throw new Error("Invalid user or");
+
+    const userId = user._id;
+
+    const session = await SessionModel.create({
+        userId, 
+        userAgent,
+    });
+
+    
+
+}
