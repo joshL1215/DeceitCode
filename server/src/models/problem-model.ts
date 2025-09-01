@@ -11,20 +11,18 @@ const caseSchema = new mongoose.Schema<Case>({
 });
 
 export interface ProblemDoc extends mongoose.Document {
-    problemId: mongoose.Types.ObjectId;
+    slug: string;
     title: string;
+    difficulty: string;
     description: string;
     prelimCases: Case[];
     testCases: Case[]; 
 }
 
 const problemSchema = new mongoose.Schema<ProblemDoc>({
-    problemId: {
-        ref: "Problem",
-        type: mongoose.Schema.Types.ObjectId,
-        index: true,
-    },
+    slug: {type: String},
     title: {type : String},
+    difficulty: {type: String},
     description: {type : String},
     prelimCases: [caseSchema],
     testCases: [caseSchema],
