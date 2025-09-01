@@ -22,6 +22,7 @@ type p = {
     accessToken: string;
     refreshToken: string;
 }
+
 export const setAuthCookies = ({res, accessToken, refreshToken}: p) => res
     .cookie("accessToken", accessToken, getAccessCookieOptions())
     .cookie("refreshToken", refreshToken, getRefreshCookieOptions());

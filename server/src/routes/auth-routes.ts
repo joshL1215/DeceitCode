@@ -5,5 +5,6 @@ const authRoutes = Router();
 
 authRoutes.post("/register", registerHandler)
 authRoutes.post("/login", loginHandler)
+// authRoutes.delete("/logout", logoutHandler)
 
 export default authRoutes;

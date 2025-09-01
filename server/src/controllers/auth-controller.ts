@@ -49,3 +49,9 @@ export const loginHandler = catchErrors(
         return setAuthCookies({res, accessToken, refreshToken}).status(201).json({message: "Login success"})
     }
 )
+
+// export const logoutHandler = catcherrors(
+//     async (req, res) => {
+
+//     }
+// )
