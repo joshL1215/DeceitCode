@@ -1,6 +1,6 @@
 import z from "zod";
 import catchErrors from "../utils/catchErrors.js";
-import { createAccount } from "../services/auth-service.js";
+import { createAccount, loginUser } from "../services/auth-service.js";
 import { setAuthCookies } from "../utils/cookies.js";
 
 const registerSchema = z.object({
@@ -28,7 +28,6 @@ export const registerHandler = catchErrors(
         // Sending access and refresh tokens to cookies
         // 201 = successfully created account
         return setAuthCookies({res, accessToken, refreshToken}).status(201).json(user)
-
     }
 );
 
@@ -38,12 +37,15 @@ const loginSchema = z.object({
     userAgent: z.string().optional().default("unknown")
     }
 );
+
 export const loginHandler = catchErrors(
     async (req, res) => {
         const request = loginSchema.parse({
             ...req.body,
             userAgent: req.headers["user-agent"],
         });
-        
+
+        const {accessToken, refreshToken} = await loginUser(request);
+        return setAuthCookies({res, accessToken, refreshToken}).status(201).json({message: "Login success"})
     }
 )

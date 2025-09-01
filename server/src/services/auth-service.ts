@@ -70,8 +70,36 @@ export const loginUser = async ({username, password, userAgent}:LoginParams) => 
     const session = await SessionModel.create({
         userId, 
         userAgent,
-    });
+    });    
 
-    
+    const refreshToken = jwt.sign(
+        {
+            sessionId: session._id,
+        },
+        JWT_REFRESH_SECRET,
+        {
+            audience: ["user"],
+            expiresIn: "30d",
+        }
+    );
 
+    const accessToken = jwt.sign(
+        {
+            sessionId: session._id,
+        },
+        JWT_SECRET,
+        {
+            audience: ["user"],
+            expiresIn: "15m",
+        }
+    )
+
+    return {
+        user: {
+            username: user.username,
+            _id: user._id,
+        },
+        accessToken,
+        refreshToken,
+    }
 }
