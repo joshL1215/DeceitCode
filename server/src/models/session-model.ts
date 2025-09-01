@@ -18,4 +18,4 @@ const sessionSchema = new mongoose.Schema<SessionDoc>({
     expiresAt: {type: Date, default: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000)}
 });
 
-export default mongoose.model<SessionDoc>("User", sessionSchema);
+export default mongoose.model<SessionDoc>("Session", sessionSchema);

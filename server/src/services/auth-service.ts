@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
-import SessionModel from "../models/session-model";
-import UserModel from "../models/user-model";
-import { JWT_REFRESH_SECRET, JWT_SECRET } from "../constants/env";
+import SessionModel from "../models/session-model.js";
+import UserModel from "../models/user-model.js";
+import { JWT_REFRESH_SECRET, JWT_SECRET } from "../constants/env.js";
 
 export type CreateAccountParams = {
     username: string;
@@ -46,5 +46,5 @@ export const createAccount = async (data: CreateAccountParams) => {
         user,
         accessToken,
         refreshToken,
-    };
-}
+    }
+};

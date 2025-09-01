@@ -23,7 +23,7 @@ App.use(cookieParser());
 // Test endpoint
 App.get("/", 
     catchErrors(async (req, res, next) => {
-        throw new Error("TEST");
+        // throw new Error("TEST");
         return res.status(200).json({
             status: "Healthy",
         });

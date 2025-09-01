@@ -8,7 +8,6 @@ const getEnv = (key: string, defaultValue?: string):string => {
     return value;
 
 }
-
 export const MONGO_URI = getEnv("MONGO_URI");
 export const APP_ORIGIN = getEnv("APP_ORIGIN");
 export const JWT_REFRESH_SECRET = getEnv("JWT_REFRESH_SECRET");

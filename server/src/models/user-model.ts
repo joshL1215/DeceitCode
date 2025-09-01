@@ -11,7 +11,7 @@ export interface UserDoc extends mongoose.Document {
 }
 
 const userSchema = new mongoose.Schema<UserDoc>({
-    username: {type: String, unqiue: true, required: true},
+    username: {type: String, unique: true, required: true},
     password: {type: String, required: true},
     verified: {type: Boolean, required: true, default: false}},
     {
