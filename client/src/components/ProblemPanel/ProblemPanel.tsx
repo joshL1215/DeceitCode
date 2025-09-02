@@ -1,4 +1,7 @@
 import { useEffect, useState } from "react";
+import ProblemDisplay from "./ProblemDisplay";
+import RunDisplay from "./RunDisplay";
+import SubmitDisplay from "./SubmitDisplay";
 
 const LEFT_PANEL_STYLE = "flex flex-col items-center bg-[#f0ededff] rounded-lg shadow overflow-hidden";
 const NAV_STYLE = "flex bg-[#e0d9d9ff] shadow-md w-full overflow-hidden"
@@ -47,10 +50,10 @@ function ProblemPanel({ slug }: { slug: string }) {
                 </button>
             </div>
             <div className='flex flex-row flex-1 w-full p-2'>
-                <div className='text-smoverflow-y-scroll h-full w-full'>
-                    <pre className="whitespace-pre-wrap break-words">
-                        {problem ? problem.description : "Loading problem..."}
-                    </pre>
+                <div className='text-sm overflow-y-scroll colored-scrollbar h-full w-full'>
+                    {leftPanelTab === "ProblemTab" && <ProblemDisplay problem={problem} />}
+                    {leftPanelTab === "RunTab" && <RunDisplay problem={problem} />}
+                    {leftPanelTab === "SubmitTab" && <SubmitDisplay problem={problem} />}
                 </div>
             </div>
         </div>

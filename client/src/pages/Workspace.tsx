@@ -5,7 +5,7 @@ import TextEditor from "../components/TextEditor";
 import { useDispatch, useSelector } from "react-redux";
 import type { RootState } from "../state/store.js"
 import { changeLanguage, changeProblem } from "../state/problem/problemSlice";
-import ProblemPanel from "../components/ProblemPanel.js";
+import ProblemPanel from "../components/ProblemPanel/ProblemPanel";
 
 const RIGHT_PANEL_STYLE = "flex flex-col items-center bg-[#f0ededff] rounded-lg shadow overflow-hidden";
 const NAV_STYLE = "flex bg-[#e0d9d9ff] shadow-md w-full overflow-hidden"
