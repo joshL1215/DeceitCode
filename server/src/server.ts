@@ -7,6 +7,7 @@ import errorHandler from "./middleware/errorHandler.js";
 import connectDb from "./config/db.js";
 import catchErrors from "./utils/catchErrors.js";
 import authRoutes from "./routes/auth-routes.js";
+import problemRoutes from "./routes/problem-routes.js";
 
 const App = express();
 
@@ -31,6 +32,7 @@ App.get("/",
 );
 
 App.use("/auth", authRoutes)
+App.use("/problems", problemRoutes)
 
 App.use(errorHandler);
 

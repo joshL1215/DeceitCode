@@ -20,7 +20,7 @@ export interface ProblemDoc extends mongoose.Document {
 }
 
 const problemSchema = new mongoose.Schema<ProblemDoc>({
-    slug: {type: String},
+    slug: {type: String, unique: true},
     title: {type : String},
     difficulty: {type: String},
     description: {type : String},

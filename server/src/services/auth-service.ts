@@ -10,6 +10,7 @@ export type CreateAccountParams = {
 }
 
 export const createAccount = async (data: CreateAccountParams) => {
+    
     if (await UserModel.exists({username: data.username})) {
         throw new Error("An account with this username already exists")
     }
@@ -60,7 +61,7 @@ type LoginParams = {
 };
 
 export const loginUser = async ({username, password, userAgent}:LoginParams) => {
-    
+
     const user = await UserModel.findOne({username});
     if (!user) throw new Error("Invalid username or password");
     
