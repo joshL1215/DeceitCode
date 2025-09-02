@@ -23,7 +23,7 @@ function Workspace() {
     const getFullStyle = (thisTab: string) => `${BUTTON_STYLE} ${thisTab === leftPanelTab ? "text-black font-semibold" : "hover:text-[#aa8c8c]"}`
 
     return (
-        <div className="flex flex-row justify-center p-3 gap-3 h-screen">
+        <div className="flex flex-row justify-center p-3 gap-3 h-screen bg-[#f5f2f2]">
 
             {/* Problem panel */}
             <div className={`${LEFT_PANEL_STYLE} flex-1`}>
