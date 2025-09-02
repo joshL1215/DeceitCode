@@ -10,8 +10,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index path="/Home" />
-          <Route path="/workspace" element={<Workspace />} />
           <Route path="/problems" element={<Problems />} />
+          <Route path="/problems/:slug" element={<Workspace />} />
           <Route path="/settings" />
         </Route>
       </Routes>

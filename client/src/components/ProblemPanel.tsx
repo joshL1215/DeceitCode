@@ -1,31 +1,55 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const LEFT_PANEL_STYLE = "flex flex-col items-center bg-[#f0ededff] rounded-lg shadow overflow-hidden";
 const NAV_STYLE = "flex bg-[#e0d9d9ff] shadow-md w-full overflow-hidden"
 const BUTTON_STYLE = "flex-1 h-full w-auto px-4"
 
-function ProblemPanel() {
+function ProblemPanel({ slug }: { slug: string }) {
 
-    const [leftPanelTab, setLeftPanelTab] = useState("Problem");
+    const [leftPanelTab, setLeftPanelTab] = useState("ProblemTab");
     const getFullStyle = (thisTab: string) => `${BUTTON_STYLE} ${thisTab === leftPanelTab ? "text-black font-semibold" : "hover:text-[#aa8c8c]"}`
+
+    type Case = {
+        input: string;
+        expectedOutput: string;
+    }
+
+    type Problem = {
+        slug: string;
+        title: string;
+        difficulty: string;
+        description: string;
+        prelimCases: Case[];
+        testCases: Case[];
+    };
+
+    const [problem, setProblem] = useState<Problem | null>(null);
+    useEffect(() => {
+        const fetchProblem = async () => {
+            const fetchedProblem = await fetch(`http://localhost:5000/problems/${slug}`);
+            const jsonifiedProblem = await fetchedProblem.json();
+            setProblem(jsonifiedProblem);
+        };
+        fetchProblem();
+    }, []);
 
     return (
         <div className={`${LEFT_PANEL_STYLE} flex-1`}>
             <div className={`${NAV_STYLE} h-10`}>
-                <button className={getFullStyle("Problem")} onClick={() => setLeftPanelTab("Problem")}>
+                <button className={getFullStyle("ProblemTab")} onClick={() => setLeftPanelTab("ProblemTab")}>
                     Problem
                 </button>
-                <button className={`${getFullStyle("Run")} border-x border-x-gray-300`} onClick={() => setLeftPanelTab("Run")}>
+                <button className={`${getFullStyle("RunTab")} border-x border-x-gray-300`} onClick={() => setLeftPanelTab("RunTab")}>
                     Run
                 </button>
-                <button className={getFullStyle("Submit")} onClick={() => setLeftPanelTab("Submit")}>
+                <button className={getFullStyle("SubmitTab")} onClick={() => setLeftPanelTab("SubmitTab")}>
                     Submit
                 </button>
             </div>
             <div className='flex flex-row flex-1 w-full p-2'>
                 <div className='text-smoverflow-y-scroll h-full w-full'>
                     <pre className="whitespace-pre-wrap break-words">
-                        {`Solve the following problem: \n\nYou have an array, denoted as nums, of integers and you have a target integer\n\nReturn two indices so that nums[one index] + nums[another index] is equal to the target integer and the two indices are not equal\n\nReturn the smaller index first.`}
+                        {problem ? problem.description : "Loading problem..."}
                     </pre>
                 </div>
             </div>

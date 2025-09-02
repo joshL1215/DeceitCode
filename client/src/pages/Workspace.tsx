@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useParams } from "react-router-dom";
 import TextEditor from "../components/TextEditor";
 
 import { useDispatch, useSelector } from "react-redux";
@@ -11,7 +12,10 @@ const NAV_STYLE = "flex bg-[#e0d9d9ff] shadow-md w-full overflow-hidden"
 
 function Workspace() {
 
-    {/* Redux */ }
+    // Current problem slug
+    const { slug } = useParams<{ slug: string }>();
+
+    // Redux
     const currProblemID = useSelector((state: RootState) => state.problem.problemID);
     const currLanguage = useSelector((state: RootState) => state.problem.language);
     const dispatch = useDispatch();
@@ -19,7 +23,7 @@ function Workspace() {
     return (
         <div className="flex flex-row justify-center p-3 gap-3 h-screen bg-[#f5f2f2]">
 
-            <ProblemPanel />
+            <ProblemPanel slug={slug!} />
 
             {/* Editor panel */}
             <div className={`${RIGHT_PANEL_STYLE} flex-3`}>
