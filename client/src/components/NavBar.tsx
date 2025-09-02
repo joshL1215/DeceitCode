@@ -14,7 +14,7 @@ function NavBar() {
             {/* Nav Buttons */}
             <div className='flex flex-row gap-5'>
                 <a href="/">Home</a>
-                <a href="/workspace">Code</a>
+                <a href="/problems">Problems</a>
                 <a href="/settings">Settings</a>
             </div>
 
