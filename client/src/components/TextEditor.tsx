@@ -1,5 +1,8 @@
 import { useRef, useEffect } from 'react';
 import * as monaco from 'monaco-editor';
+import { useDispatch } from 'react-redux';
+import type { AppDispatch } from '../state/store';
+import { setCode } from '../state/code/codeSlice';
 
 interface TextEditorConfig {
     language: string;
@@ -9,6 +12,9 @@ interface TextEditorConfig {
 function TextEditor({ language, starterCode }: TextEditorConfig) {
     const containerRef = useRef<HTMLDivElement>(null);
     const editorRef = useRef<monaco.editor.IStandaloneCodeEditor | null>(null);
+
+    // For Redux state
+    const dispatch = useDispatch<AppDispatch>();
 
     useEffect(() => {
         monaco.editor.defineTheme('custom-beige', {
@@ -30,6 +36,12 @@ function TextEditor({ language, starterCode }: TextEditorConfig) {
                 automaticLayout: true,
                 renderLineHighlight: 'line',
                 minimap: { enabled: false },
+            });
+
+            // On change, dispatch to Redux
+            editorRef.current.onDidChangeModelContent(() => {
+                const currentValue = editorRef.current?.getValue() || "";
+                dispatch(setCode(currentValue));
             });
         }
         return () => {

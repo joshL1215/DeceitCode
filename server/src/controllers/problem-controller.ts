@@ -35,8 +35,8 @@ export const judgeHandler = catchErrors(
         const cases = request.mode === "prelim" ? problem.prelimCases : problem.testCases;
 
         const payload = {
-            language: "python",
-            code: "print('hi')",
+            language: request.language,
+            code: request.code,
             cases,
         }
 
@@ -48,12 +48,8 @@ export const judgeHandler = catchErrors(
             body: JSON.stringify(payload),
         });
 
-
-        // get the problem test cases using the slug (only send)
-        // send everything through to microservice
-        // get results
-        // eval
-        //send to frontend
+        const judgeResults = await response.json()
+        return res.status(200).json(judgeResults);
 
     }
 )

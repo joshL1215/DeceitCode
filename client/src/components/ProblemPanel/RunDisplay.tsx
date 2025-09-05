@@ -1,3 +1,5 @@
+import JudgeButton from "./JudgeButton";
+
 type Case = {
     input: string;
     expectedOutput: string;
@@ -13,9 +15,12 @@ type Problem = {
 };
 
 function RunDisplay({ problem }: { problem: Problem | null }) {
+    if (!problem) return null;
+
     return (
         <div className="flex flex-column justify-center">
-            <button className="w-20 h-20 bg-green-600 rounded shadow">Run</button>
+            <JudgeButton slug={problem.slug} language="python" cases={problem.prelimCases} label="Run" mode="prelim" />
+            {/* TODO: Expand support past python only */}
         </div>
 
     )

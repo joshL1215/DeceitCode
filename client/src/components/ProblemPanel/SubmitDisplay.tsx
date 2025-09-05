@@ -14,8 +14,14 @@ type Problem = {
 
 function SubmitDisplay({ problem }: { problem: Problem | null }) {
     return (
-        <div className="flex flex-column justify-center">
-            <button className="w-20 h-20 bg-green-600 rounded shadow">Submit</button>
+        <div className="flex flex-col items-center justify-center p-3">
+            <button className="w-65 h-15 bg-[#a1b595] hover:bg-[#7C996E] font-semibold rounded-2xl">
+                Submit
+            </button>
+
+            {/* Test case results */}
+            <div className="grid grid-cols-2 gap-4">
+            </div>
         </div>
 
     )
