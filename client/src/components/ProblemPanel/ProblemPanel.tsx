@@ -48,7 +48,7 @@ function ProblemPanel({ slug }: { slug: string }) {
                     Submit
                 </button>
             </div>
-            <div className='flex flex-row flex-1 w-full p-2 overflow-y-scroll colored-scrollbar'>
+            <div className='flex flex-row flex-1 w-full p-2 overflow-y-scroll colored-scrollbar max-h-140'>
                 <div className='text-sm h-full w-full'>
                     {leftPanelTab === "ProblemTab" && <ProblemDisplay problem={problem} />}
                     {leftPanelTab === "RunTab" && <SubmitDisplay problem={problem} mode="prelim" />}
