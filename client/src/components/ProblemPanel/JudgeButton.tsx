@@ -13,9 +13,17 @@ interface JudgeButtonProps {
     cases: Case[];
     label: string;
     mode: string;
+    onResult: (result: SubmissionResult) => void;
 }
 
-const JudgeButton: React.FC<JudgeButtonProps> = ({ slug, language, cases, label, mode }) => {
+type CaseResult = {
+    returned: string,
+    res: string,
+}
+
+export type SubmissionResult = CaseResult[]
+
+const JudgeButton: React.FC<JudgeButtonProps> = ({ slug, language, cases, label, mode, onResult }) => {
     const [loading, setLoading] = useState(false);
 
     const code = useSelector((state: RootState) => state.code.content);
@@ -42,7 +50,9 @@ const JudgeButton: React.FC<JudgeButtonProps> = ({ slug, language, cases, label,
                 throw new Error(`HTTP error Status: ${response.status}`);
             }
 
-            const result = await response.json();
+            const result: SubmissionResult = await response.json();
+            onResult(result)
+
             console.log("Success:", result);
         } catch (err: any) {
             console.log("Error:", err.message);

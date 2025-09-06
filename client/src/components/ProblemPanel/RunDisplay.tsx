@@ -19,8 +19,6 @@ function RunDisplay({ problem }: { problem: Problem | null }) {
 
     return (
         <div className="flex flex-column justify-center">
-            <JudgeButton slug={problem.slug} language="python" cases={problem.prelimCases} label="Run" mode="prelim" />
-            {/* TODO: Expand support past python only */}
         </div>
 
     )
