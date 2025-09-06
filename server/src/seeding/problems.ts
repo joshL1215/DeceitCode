@@ -5,32 +5,15 @@ import mongoose from "mongoose";
 
 const problems = [
   {
-    slug: "two-sum",
-    title: "Two Sum",
-    difficulty: "Easy",
-    description: `Given an array of integers and a target, return indices of the two numbers 
-such that they add up to the target. Each input will have exactly one solution.`,
-    prelimCases: [
-      { input: "[2,7,11,15], 9", expectedOutput: "[0,1]" },
-      { input: "[3,2,4], 6", expectedOutput: "[1,2]" },
-      { input: "[3,3], 6", expectedOutput: "[0,1]" }
-    ],
-    testCases: [
-      { input: "[1,2,3,4,5], 8", expectedOutput: "[2,4]" },
-      { input: "[0,0,0,0], 0", expectedOutput: "[0,1]" },
-      { input: "[5,75,25], 100", expectedOutput: "[1,2]" },
-      { input: "[1,3,7,9], 10", expectedOutput: "[0,3]" },
-      { input: "[2,4,6,8], 14", expectedOutput: "[2,3]" },
-      { input: "[1,1,2,3], 4", expectedOutput: "[2,3]" },
-      { input: "[10,20,30], 50", expectedOutput: "[1,2]" },
-      { input: "[5,5,5,5], 10", expectedOutput: "[0,1]" }
-    ]
-  },
-  {
     slug: "reverse-string",
     title: "Reverse String",
     difficulty: "Easy",
-    description: `Write a function that reverses a string. For example, given "hello", return "olleh".`,
+    description: `Write a function that reverses a given string.\n
+The input will be a single string, which may contain letters, numbers, or symbols.\n
+Return a new string which is the reverse of the input string.\n
+Examples:\n
+"hello" -> "olleh"\n
+"world!" -> "!dlrow"`,
     prelimCases: [
       { input: '"hello"', expectedOutput: '"olleh"' },
       { input: '"world"', expectedOutput: '"dlrow"' },
@@ -48,32 +31,16 @@ such that they add up to the target. Each input will have exactly one solution.`
     ]
   },
   {
-    slug: "fibonacci-number",
-    title: "Fibonacci Number",
-    difficulty: "Easy",
-    description: `Given n, return the nth Fibonacci number. Assume Fib(0)=0 and Fib(1)=1.`,
-    prelimCases: [
-      { input: "0", expectedOutput: "0" },
-      { input: "1", expectedOutput: "1" },
-      { input: "2", expectedOutput: "1" }
-    ],
-    testCases: [
-      { input: "3", expectedOutput: "2" },
-      { input: "4", expectedOutput: "3" },
-      { input: "5", expectedOutput: "5" },
-      { input: "6", expectedOutput: "8" },
-      { input: "7", expectedOutput: "13" },
-      { input: "8", expectedOutput: "21" },
-      { input: "9", expectedOutput: "34" },
-      { input: "10", expectedOutput: "55" }
-    ]
-  },
-  {
     slug: "palindrome-number",
     title: "Palindrome Number",
     difficulty: "Easy",
-    description: `Determine whether an integer is a palindrome. An integer is a palindrome 
-when it reads the same backward as forward.`,
+    description: `Determine whether a given integer is a palindrome.\n
+A palindrome integer reads the same forward and backward.\n
+Your function should return "true" if the integer is a palindrome and "false" otherwise.\n
+Examples:\n
+121 -> true\n
+-121 -> false\n
+10 -> false`,
     prelimCases: [
       { input: "121", expectedOutput: "true" },
       { input: "-121", expectedOutput: "false" },
@@ -91,100 +58,45 @@ when it reads the same backward as forward.`,
     ]
   },
   {
-    slug: "merge-two-sorted-lists",
-    title: "Merge Two Sorted Lists",
-    difficulty: "Medium",
-    description: `Merge two sorted linked lists and return it as a new sorted list. 
-The new list should be made by splicing together the nodes of the first two lists.`,
-    prelimCases: [
-      { input: "[1,2,4], [1,3,4]", expectedOutput: "[1,1,2,3,4,4]" },
-      { input: "[], []", expectedOutput: "[]" },
-      { input: "[], [0]", expectedOutput: "[0]" }
-    ],
-    testCases: [
-      { input: "[5,10], [3,7,8]", expectedOutput: "[3,5,7,8,10]" },
-      { input: "[1], [2,3,4]", expectedOutput: "[1,2,3,4]" },
-      { input: "[1,3,5], [2,4,6]", expectedOutput: "[1,2,3,4,5,6]" },
-      { input: "[2,4], [1,3]", expectedOutput: "[1,2,3,4]" },
-      { input: "[0], [0]", expectedOutput: "[0,0]" },
-      { input: "[], [1,2,3]", expectedOutput: "[1,2,3]" },
-      { input: "[1,2], []", expectedOutput: "[1,2]" },
-      { input: "[7,8], [6,9]", expectedOutput: "[6,7,8,9]" }
-    ]
-  },
-  {
-    slug: "valid-parentheses",
-    title: "Valid Parentheses",
+    slug: "fibonacci-number",
+    title: "Fibonacci Number",
     difficulty: "Easy",
-    description: `Given a string containing just the characters '(', ')', '{', '}', '[' and ']', 
-determine if the input string is valid. Open brackets must be closed in the correct order.`,
+    description: `Calculate the nth Fibonacci number for a given integer n.\n
+The Fibonacci sequence is defined as:\n
+Fib(0) = 0, Fib(1) = 1\n
+Fib(n) = Fib(n-1) + Fib(n-2) for n > 1\n
+Your function should return the nth Fibonacci number.\n
+Examples:\n
+0 -> 0\n
+1 -> 1\n
+5 -> 5`,
     prelimCases: [
-      { input: '"()"', expectedOutput: "true" },
-      { input: '"()[]{}"', expectedOutput: "true" },
-      { input: '"(]"', expectedOutput: "false" }
+      { input: "0", expectedOutput: "0" },
+      { input: "1", expectedOutput: "1" },
+      { input: "2", expectedOutput: "1" }
     ],
     testCases: [
-      { input: '"([{}])"', expectedOutput: "true" },
-      { input: '"(((())))"', expectedOutput: "true" },
-      { input: '"((())"', expectedOutput: "false" },
-      { input: '"([)]"', expectedOutput: "false" },
-      { input: '"{}[]"', expectedOutput: "true" },
-      { input: '"{"', expectedOutput: "false" },
-      { input: '"]"', expectedOutput: "false" },
-      { input: '"", expectedOutput: "true"' }
-    ]
-  },
-  {
-    slug: "remove-duplicates-sorted-array",
-    title: "Remove Duplicates from Sorted Array",
-    difficulty: "Easy",
-    description: `Given a sorted array nums, remove the duplicates in-place such that each element 
-appears only once and returns the new length.`,
-    prelimCases: [
-      { input: "[1,1,2]", expectedOutput: "[1,2]" },
-      { input: "[0,0,1,1,1,2,2,3,3,4]", expectedOutput: "[0,1,2,3,4]" },
-      { input: "[1,2,3]", expectedOutput: "[1,2,3]" }
-    ],
-    testCases: [
-      { input: "[]", expectedOutput: "[]" },
-      { input: "[1]", expectedOutput: "[1]" },
-      { input: "[1,1]", expectedOutput: "[1]" },
-      { input: "[1,1,1,1]", expectedOutput: "[1]" },
-      { input: "[0,0,0,0,1]", expectedOutput: "[0,1]" },
-      { input: "[1,2,2,3,4,4,5]", expectedOutput: "[1,2,3,4,5]" },
-      { input: "[10,10,20,20,30,30]", expectedOutput: "[10,20,30]" },
-      { input: "[1,1,2,2,3,3,4,4,5,5]", expectedOutput: "[1,2,3,4,5]" }
-    ]
-  },
-  {
-    slug: "best-time-stock",
-    title: "Best Time to Buy and Sell Stock",
-    difficulty: "Medium",
-    description: `You are given an array prices where prices[i] is the price of a given stock 
-on the ith day. You want to maximize your profit by choosing a single day to buy one stock 
-and choosing a different day in the future to sell that stock.`,
-    prelimCases: [
-      { input: "[7,1,5,3,6,4]", expectedOutput: "5" },
-      { input: "[1,2,3,4,5]", expectedOutput: "4" },
-      { input: "[7,6,4,3,1]", expectedOutput: "0" }
-    ],
-    testCases: [
-      { input: "[3,3,5,0,0,3,1,4]", expectedOutput: "4" },
-      { input: "[1,2]", expectedOutput: "1" },
-      { input: "[2,4,1]", expectedOutput: "2" },
-      { input: "[2,1,2,0,1]", expectedOutput: "1" },
-      { input: "[1]", expectedOutput: "0" },
-      { input: "[1,2,4,2,5,7,2,4,9,0]", expectedOutput: "9" },
-      { input: "[7,1,5,3,6,4,8]", expectedOutput: "7" },
-      { input: "[1,2,3,0,2,5]", expectedOutput: "5" }
+      { input: "3", expectedOutput: "2" },
+      { input: "4", expectedOutput: "3" },
+      { input: "5", expectedOutput: "5" },
+      { input: "6", expectedOutput: "8" },
+      { input: "7", expectedOutput: "13" },
+      { input: "8", expectedOutput: "21" },
+      { input: "9", expectedOutput: "34" },
+      { input: "10", expectedOutput: "55" }
     ]
   },
   {
     slug: "climbing-stairs",
     title: "Climbing Stairs",
     difficulty: "Easy",
-    description: `You are climbing a staircase. It takes n steps to reach the top. Each time you 
-can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?`,
+    description: `You are climbing a staircase with n steps.\n
+Each time you can climb either 1 or 2 steps.\n
+Calculate how many distinct ways there are to reach the top of the staircase.\n
+Return the total number of unique paths.\n
+Examples:\n
+2 -> 2 (1+1, 2)\n
+3 -> 3 (1+1+1, 1+2, 2+1)`,
     prelimCases: [
       { input: "2", expectedOutput: "2" },
       { input: "3", expectedOutput: "3" },
@@ -206,7 +118,11 @@ can either climb 1 or 2 steps. In how many distinct ways can you climb to the to
     title: "Maximum Subarray",
     difficulty: "Medium",
     description: `Given an integer array nums, find the contiguous subarray (containing at least one number) 
-which has the largest sum and return its sum.`,
+which has the largest sum and return its sum.\n
+The subarray must be continuous and can contain negative numbers.\n
+Examples:\n
+[-2,1,-3,4,-1,2,1,-5,4] -> 6\n
+[1,2,3,4,5] -> 15`,
     prelimCases: [
       { input: "[-2,1,-3,4,-1,2,1,-5,4]", expectedOutput: "6" },
       { input: "[1]", expectedOutput: "1" },
