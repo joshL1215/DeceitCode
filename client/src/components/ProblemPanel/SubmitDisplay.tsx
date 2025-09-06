@@ -15,7 +15,7 @@ type Problem = {
     testCases: Case[];
 };
 
-function SubmitDisplay({ problem }: { problem: Problem | null }) {
+function SubmitDisplay({ problem, mode }: { problem: Problem | null; mode: string }) {
 
     if (!problem) {
         return (
@@ -25,14 +25,14 @@ function SubmitDisplay({ problem }: { problem: Problem | null }) {
         )
     }
 
-    const cases = problem.testCases;
+    const cases = mode === "test" ? problem.testCases : problem.prelimCases
 
     const [results, setResults] = useState<SubmissionResult>([]);
 
     return (
-        <div className="flex flex-col items-center justify-center shadow p-3">
+        <div className="flex flex-col items-center justify-center p-3">
             <div className="flex flex-column justify-center">
-                <JudgeButton slug={problem.slug} language="python" cases={problem.testCases} label="Submit" mode="test" onResult={setResults} />
+                <JudgeButton slug={problem.slug} language="python" cases={cases} label="Submit" mode={mode} onResult={setResults} />
                 {/* TODO: Expand support past python only */}
             </div>
 

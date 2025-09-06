@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import ProblemDisplay from "./ProblemDisplay";
-import RunDisplay from "./RunDisplay";
 import SubmitDisplay from "./SubmitDisplay";
 
 const LEFT_PANEL_STYLE = "flex flex-col items-center bg-[#f0ededff] rounded-lg shadow overflow-hidden";
@@ -52,8 +51,8 @@ function ProblemPanel({ slug }: { slug: string }) {
             <div className='flex flex-row flex-1 w-full p-2 overflow-y-scroll colored-scrollbar'>
                 <div className='text-sm h-full w-full'>
                     {leftPanelTab === "ProblemTab" && <ProblemDisplay problem={problem} />}
-                    {leftPanelTab === "RunTab" && <RunDisplay problem={problem} />}
-                    {leftPanelTab === "SubmitTab" && <SubmitDisplay problem={problem} />}
+                    {leftPanelTab === "RunTab" && <SubmitDisplay problem={problem} mode="prelim" />}
+                    {leftPanelTab === "SubmitTab" && <SubmitDisplay problem={problem} mode="test" />}
                 </div>
             </div>
         </div>
