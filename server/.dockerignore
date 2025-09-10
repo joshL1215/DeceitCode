@@ -1,0 +1,27 @@
+# Node modules 
+node_modules
+npm-debug.log
+yarn-error.log
+pnpm-lock.yaml
+
+# Logs and temp files
+logs
+*.log
+tmp
+*.tmp
+
+# Git metadata
+.git
+.gitignore
+
+# IDE configs
+.vscode
+.idea
+
+# Docker files (avoid copying Dockerfile or .dockerignore unnecessarily)
+Dockerfile
+.dockerignore
+
+# Build outputs
+dist
+build
