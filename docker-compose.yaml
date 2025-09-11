@@ -11,12 +11,16 @@ services:
   backend:
     container_name: deceitcode-backend
     image: joshl1215/deceitcode-backend:latest
+    restart: unless-stopped
     ports:
      - "5000:5000"
+    env_file:
+     - .env
   
   sandbox-microservice:
     container_name: sandbox-microservice
     image: joshl1215/remote-code-sandbox:latest
+    restart: unless-stopped
     ports:
      - "5001:5001"
     volumes:
