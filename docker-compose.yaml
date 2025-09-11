@@ -7,6 +7,20 @@ services:
      - "27017:27017"
     volumes: 
      - deceitcode-data:/data/db
+
+  backend:
+    container_name: deceitcode-backend
+    image: joshl1215/deceitcode-backend:latest
+    ports:
+     - "5000:5000"
+  
+  sandbox-microservice:
+    container_name: sandbox-microservice
+    image: joshl1215/remote-code-sandbox:latest
+    ports:
+     - "5001:5001"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
   
 volumes:
   deceitcode-data:
