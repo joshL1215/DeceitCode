@@ -1,6 +1,7 @@
 import z from "zod";
 import catchErrors from "../utils/catchErrors.js";
 import { fetchAllProbs, fetchProb } from "../services/problem-service.js";
+import { SANDBOX_URL } from "../constants/env.js";
 
 export const fetchAllHandler = catchErrors(
     async (req, res) => {
@@ -40,7 +41,7 @@ export const judgeHandler = catchErrors(
             cases,
         }
 
-        const response = await fetch('http://localhost:5001/', {
+        const response = await fetch(SANDBOX_URL, {
             method: 'POST',
             headers: {
                 'Content-Type' : 'application/json',
