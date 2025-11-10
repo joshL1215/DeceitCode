@@ -11,7 +11,7 @@ This project uses a service from my separate repo for the RemoteCodeSandbox. See
 ### Problem Database
 ![screenshot1](./docs/deceitcode1.png)
 
-###
+### Interactive frontend with Monaco code editor
 ![screenshot2](./docs/deceitcode2.png)
 
 ### Code judging with custom code execution sandbox
