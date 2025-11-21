@@ -1,7 +1,7 @@
 # DeceitCode
 
 ## About this project
-LeetCode-like coding challenge platform built to experiment with anti-cheat techniques intended to combat emerging tools powered by LLMs. The frontend (React + Vite + Monaco) provides a workspace and submit/run flows. The backend (Node + Express + TypeScript + MongoDB) serves problems, auth, and judges submissions via a remote sandbox service. 
+LeetCode-like coding challenge platform built to experiment with anti-cheat techniques intended to combat emerging tools powered by LLMs. The frontend (React + Monaco) provides a workspace and submit/run flows. The backend (Node + Express + TypeScript + MongoDB) serves problems, auth, and judges submissions via a remote sandbox service (Go, Docker, gVisor). 
 
 This project uses a service from my separate repo for the RemoteCodeSandbox. See: https://github.com/joshL1215/RemoteCodeSandbox  
 
