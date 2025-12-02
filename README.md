@@ -1,7 +1,7 @@
 # LeetCode Clone w/ Docker-based Code Judging System
 
 ## About this project
-LeetCode-like coding challenge platform with a code submission testing sandbox built around Docker. The frontend (React + Monaco) provides a workspace and submit/run flows. The backend (Node + Express + TypeScript + MongoDB) serves problems, auth, and judges submissions via a remote sandbox service (Go, Docker, gVisor). 
+LeetCode-like coding challenge platform with a code submission testing sandbox built around Docker. Called DeceitCode because it has anti-LLM prompts all over it that would hopefully reduce cheating with LLM-based tools. The frontend (React + Monaco) provides a workspace and submit/run flows. The backend (Node + Express + TypeScript + MongoDB) serves problems, auth, and judges submissions via a remote sandbox service (Go, Docker, gVisor). 
 
 This project uses a service from my separate repo for the RemoteCodeSandbox. See: https://github.com/joshL1215/RemoteCodeSandbox  
 
