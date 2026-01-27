@@ -4,7 +4,7 @@ services:
     image: mongo:latest
     restart: unless-stopped
     ports:
-     - "27017:27017"
+     - "127.0.0.1:27017:27017"
     volumes: 
      - deceitcode-data:/data/db
 
@@ -13,7 +13,7 @@ services:
     image: joshl1215/deceitcode-backend:latest
     restart: unless-stopped
     ports:
-     - "5000:5000"
+     - "127.0.0.1:5000:5000"
     env_file:
      - .env
   
@@ -22,7 +22,7 @@ services:
     image: joshl1215/remote-code-sandbox:latest
     restart: unless-stopped
     ports:
-     - "5001:5001"
+     - "127.0.0.1:5001:5001"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
   
